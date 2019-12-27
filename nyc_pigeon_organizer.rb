@@ -1,6 +1,5 @@
 require 'pp'
 
-
 def nyc_pigeon_organizer(data)
   pigeon_list= {}
   data.each do |key,value| #key = color,gender,lives | value = purple,grey,male,female,lives
@@ -22,6 +21,23 @@ def nyc_pigeon_organizer(data)
       end
     end
   end
-  
+  data[:gender].each do |malefemale,gender|
+    gender.each do |element|
+      keys.each do |key|
+        if key === element
+          pigeon_list[key][:gender] << malefemale.to_s
+        end
+      end
+    end
+  end
+data[:lives].each do |location,name|
+    name.each do |element|
+      keys.each do |key|
+        if key === element
+          pigeon_list[key][:lives] << location.to_s
+        end
+      end
+    end
+  end
   pigeon_list
-end
+  end
